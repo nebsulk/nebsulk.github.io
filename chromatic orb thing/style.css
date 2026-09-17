@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #11111a;
+    color: #f5f5f7;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.subtitle {
+    color: #aaaabb;
+}
+
+.panel {
+    background: #1b1b27;
+    border: 1px solid #303040;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+.settings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: end;
+}
+
+.setting label,
+.label {
+    display: block;
+    color: #aaaabb;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    background: #101018;
+    color: white;
+    border: 1px solid #3a3a4c;
+    border-radius: 9px;
+    padding: 12px;
+    font-size: 15px;
+}
+
+.toggle {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    width: 42px;
+    height: 23px;
+    background: #444455;
+    border-radius: 20px;
+    position: relative;
+}
+
+.slider::after {
+    content: "";
+    width: 17px;
+    height: 17px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.2s;
+}
+
+.toggle input:checked + .slider {
+    background: #7c3aed;
+}
+
+.toggle input:checked + .slider::after {
+    left: 22px;
+}
+
+.toggle small {
+    color: #aaaabb;
+}
+
+.enemy-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+h2 {
+    margin: 0 0 5px;
+}
+
+.enemy-heading p,
+.hint {
+    color: #9292a5;
+    font-size: 14px;
+}
+
+.enemy {
+    display: grid;
+    grid-template-columns: 1fr 120px 45px;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+button {
+    border: 0;
+    border-radius: 9px;
+    padding: 11px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.secondary {
+    background: #303040;
+    color: white;
+}
+
+.remove {
+    background: #45222a;
+    color: #ffb7c2;
+}
+
+.roll-button {
+    width: 100%;
+    background: #7c3aed;
+    color: white;
+    font-size: 18px;
+    padding: 16px;
+    margin: 5px 0 22px;
+}
+
+.roll-button:hover {
+    background: #8b5cf6;
+}
+
+.results.hidden {
+    display: none;
+}
+
+.result-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.result-summary > div {
+    background: #1b1b27;
+    border: 1px solid #303040;
+    border-radius: 13px;
+    padding: 17px;
+    text-align: center;
+}
+
+.result-summary strong {
+    font-size: 24px;
+}
+
+.roll-card {
+    background: #1b1b27;
+    border: 1px solid #303040;
+    border-radius: 13px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.roll-card.hit {
+    border-left: 5px solid #48d597;
+}
+
+.roll-card.miss {
+    border-left: 5px solid #e96b7b;
+}
+
+.roll-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roll-top h3 {
+    margin: 0;
+}
+
+.badge {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge.hit {
+    background: #173b30;
+    color: #71e6b5;
+}
+
+.badge.miss {
+    background: #41232a;
+    color: #ff9daa;
+}
+
+.roll-line {
+    margin-top: 14px;
+    color: #c9c9d5;
+}
+
+.d20 {
+    color: #c4a1ff;
+    font-weight: bold;
+}
+
+.damage {
+    color: white;
+    font-weight: bold;
+}
+
+.jump {
+    margin-top: 12px;
+    color: #a78bfa;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    color: #66667a;
+    font-size: 12px;
+    padding: 10px;
+}
+
+@media (max-width: 650px) {
+    .settings,
+    .result-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .enemy {
+        grid-template-columns: 1fr 90px 45px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .enemy-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromatic Orb Roller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">D&D 2024</p>
+            <h1>Chromatic Orb</h1>
+            <p class="subtitle">Roll your spell attack, damage, and possible orb leaps.</p>
+        </header>
+
+        <section class="panel settings">
+            <div class="setting">
+                <label for="spellLevel">Spell Slot Level</label>
+                <select id="spellLevel">
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                    <option value="5">Level 5</option>
+                    <option value="6">Level 6</option>
+                    <option value="7">Level 7</option>
+                    <option value="8">Level 8</option>
+                    <option value="9">Level 9</option>
+                </select>
+            </div>
+
+            <div class="setting">
+                <label for="damageType">Damage Type</label>
+                <select id="damageType">
+                    <option>Acid</option>
+                    <option>Cold</option>
+                    <option>Fire</option>
+                    <option>Lightning</option>
+                    <option>Poison</option>
+                    <option>Thunder</option>
+                </select>
+            </div>
+
+            <div class="setting">
+                <label for="attackBonus">Spell Attack Bonus</label>
+                <input id="attackBonus" type="number" value="7">
+            </div>
+
+            <label class="toggle">
+                <input type="checkbox" id="innateSorcery">
+                <span class="slider"></span>
+                <span>Innate Sorcery <small>(Advantage)</small></span>
+            </label>
+        </section>
+
+        <section class="panel">
+            <div class="enemy-heading">
+                <div>
+                    <h2>Enemies</h2>
+                    <p>Add the enemies that the orb can jump between.</p>
+                </div>
+                <button id="addEnemy" class="secondary">+ Add Enemy</button>
+            </div>
+            <div id="enemyList"></div>
+            <p class="hint">The first enemy is always the initial target. The orb can hit each creature only once.</p>
+        </section>
+
+        <button id="rollButton" class="roll-button">Roll Chromatic Orb</button>
+
+        <section id="results" class="results hidden">
+            <div class="result-summary">
+                <div>
+                    <span class="label">Damage Dice</span>
+                    <strong id="diceSummary">3d8</strong>
+                </div>
+                <div>
+                    <span class="label">Maximum Targets</span>
+                    <strong id="targetSummary">2</strong>
+                </div>
+                <div>
+                    <span class="label">Total Damage</span>
+                    <strong id="totalDamage">0</strong>
+                </div>
+            </div>
+
+            <div id="rollResults"></div>
+        </section>
+
+        <footer>
+            <p>2024 rules: Chromatic Orb starts at 3d8 and gains 1d8 per slot level above 1.</p>
+        </footer>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
