@@ -372,12 +372,14 @@ function displayResults(hitResults,d8Count,maxTargets,totalDamage,wildMagicRoll,
                 </span>
             </div>
 
+
             <div class="roll-line">
-                D20:
-                <span class="d20">${rollText}</span>
-                + ${attackBonus.value}
-                vs AC ${result.enemy.ac}
-            </div>
+			D20:
+			<span class="d20">${rollText}</span>
+			+ ${attackBonus.value}
+			= ${result.attack.chosen + Number(attackBonus.value)}
+			vs AC ${result.enemy.ac}
+			</div>
 
             ${damageText}
             ${jumpText}
