@@ -10,7 +10,7 @@
         <header>
             <p class="eyebrow">D&D 2024</p>
             <h1>Chromatic Orb</h1>
-            <p class="subtitle">Roll your spell attack, damage, and possible orb leaps.</p>
+            <p class="subtitle">Made because I was having time issues with chromatic orb</p>
         </header>
 
         <section class="panel settings">
@@ -51,6 +51,17 @@
                 <span class="slider"></span>
                 <span>Innate Sorcery <small>(Advantage)</small></span>
             </label>
+			<label class="toggle">
+			<input type="checkbox" id="elvenAccuracy">
+			<span class="slider"></span>
+			<span>Elven Accuracy <small>(3 dice with Advantage)</small></span>
+			</label>
+
+			<label class="toggle">
+			<input type="checkbox" id="wildMagic">
+			<span class="slider"></span>
+			<span>Wild Magic</span>
+			</label>
         </section>
 
         <section class="panel">
@@ -91,6 +102,17 @@
         </footer>
     </main>
 
-    <script src="main.js"></script>
+   
+	<aside class="wild-magic-sidebar">
+    <h2>Wild Magic</h2>
+
+    <label for="wildMagicAmount">Number of rolls:</label>
+    <input type="number" id="wildMagicAmount" min="1" value="1">
+
+    <button id="wildMagicButton">Roll Wild Magic</button>
+
+    <div id="wildMagicResults"></div>
+	</aside>
+ <script src="main.js"></script>
 </body>
 </html>
