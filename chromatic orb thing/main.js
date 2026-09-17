@@ -24,7 +24,7 @@ function addEnemyRow() {
 
     enemy.innerHTML = `
         <input type="text" class="enemy-name" value="Enemy ${enemyNumber}">
-        <input type="number" class="enemy-ac" value="15" min="1">
+        <input type="number" class="enemy-ac" value="0" min="1">
         <button class="remove" title="Remove enemy">×</button>
     `;
 
