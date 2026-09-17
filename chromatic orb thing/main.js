@@ -118,7 +118,9 @@ function rollChromaticOrb() {
         const isNatural20 = attack.chosen === 20;
         const isNatural1 = attack.chosen === 1;
         const hit = isNatural20 || (!isNatural1 && attack.chosen + Number(attackBonus.value) >= enemy.ac);
-
+        if (isNatural20) {
+			d8Count = d8Count*2	
+		};
         const damageRolls = hit ? rollD8(d8Count) : [];
         const damage = hit
             ? damageRolls.reduce((sum, value) => sum + value, 0)
