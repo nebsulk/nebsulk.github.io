@@ -283,3 +283,66 @@ footer {
         flex-direction: column;
     }
 }
+
+
+/*--wild magic sidebar */
+
+.wild-magic-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 120px;
+    width: 280px;
+    padding: 20px;
+    background: #1b1b1b;
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.wild-magic-sidebar h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.wild-magic-sidebar p {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+#wildMagicButton {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.wild-magic-result {
+    margin-top: 15px;
+    padding: 12px;
+    background: #292929;
+    border-radius: 8px;
+}
+
+.wild-magic-roll {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.wild-magic-effect {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Move the sidebar below the main content on smaller screens */
+@media (max-width: 1100px) {
+    .wild-magic-sidebar {
+        position: static;
+        width: auto;
+        margin: 30px 0;
+    }
+}
