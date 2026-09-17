@@ -89,8 +89,7 @@ function rollChromaticOrb() {
     const level = Number(spellLevel.value);
     const d8Count = 3 + (level - 1);
 
-    // The 2024 rules allow a maximum number of leaps equal to the slot level.
-    // That means the initial target plus the possible leaps gives level + 1 targets.
+    //enemy count logic
     const maxTargets = level + 1;
 
     const enemyRows = [...document.querySelectorAll(".enemy")];
@@ -117,9 +116,15 @@ function rollChromaticOrb() {
 
         const isNatural20 = attack.chosen === 20;
         const isNatural1 = attack.chosen === 1;
-        const hit = isNatural20 || (!isNatural1 && attack.chosen + Number(attackBonus.value) >= enemy.ac);
+
+        const hit = isNatural20 ||
+            (!isNatural1 && attack.chosen + Number(attackBonus.value) >= enemy.ac);
+
+        // Double the damage dice if this attack is a critical hit.
         const damageDiceCount = isNatural20 ? d8Count * 2 : d8Count;
-   	 	const damageRolls = hit ? rollD8(damageDiceCount) : [];
+
+        const damageRolls = hit ? rollD8(damageDiceCount) : [];
+
         const damage = hit
             ? damageRolls.reduce((sum, value) => sum + value, 0)
             : 0;
@@ -137,8 +142,7 @@ function rollChromaticOrb() {
             isNatural20
         });
 
-        // The orb can only leap when two or more damage dice match.
-        // A miss ends the chain because there is no damage roll to trigger a leap.
+        // bounce logic
         if (!hit || !hasMatchingD8(damageRolls)) {
             break;
         }
