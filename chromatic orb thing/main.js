@@ -52,7 +52,7 @@ function getWildMagicEffect() {
         effect = "Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.";
     }
     else if (roll <= 8) {
-        effect = "A Friendly creature appears in a random unoccupied space within 60 feet of you and disappears 1 minute later.";
+        effect = "A creature that is Friendly toward you appears in a random unoccupied space within 60 feet of you. The creature is under the DM’s control and disappears 1 minute later. Roll 1d4 to determine the creature: on a 1, a Modron Duodrone appears; on a 2, a Flumph appears; on a 3, a Modron Monodrone appears; on a 4, a Unicorn appears. See the Monster Manual for the creature’s stat block.";
     }
     else if (roll <= 12) {
         effect = "For the next minute, you regain 5 Hit Points at the start of each of your turns.";
@@ -61,7 +61,7 @@ function getWildMagicEffect() {
         effect = "Creatures have Disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.";
     }
     else if (roll <= 20) {
-        effect = "You are subjected to a random effect that lasts for 1 minute. Roll 1d8.";
+        effect = "You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll 1d8 to determine the effect: on a 1, you’re surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you Advantage on Wisdom (Perception) checks; on an 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a Remove Curse spell.";
     }
     else if (roll <= 24) {
         effect = "For the next minute, all your spells with a casting time of an action have a casting time of a Bonus Action.";
@@ -91,7 +91,7 @@ function getWildMagicEffect() {
         effect = "You can take one extra action on this turn.";
     }
     else if (roll <= 60) {
-        effect = "You cast a random spell. If the spell normally requires Concentration, it doesn't require Concentration in this case.";
+        effect = "You cast a random spell. If the spell normally requires Concentration, it doesn’t require Concentration in this case; the spell lasts for its full duration. Roll 1d10 to determine the spell: on a 1, Confusion; on a 2, Fireball; on a 3, Fog Cloud; on a 4, Fly (cast on a random creature within 60 feet of you), on a 5, Grease; on a 6, Levitate (cast on yourself); on a 7, Magic Missile (cast as a level 5 spell); on an 8, Mirror Image; on a 9, Polymorph (cast on yourself), and if you fail the saving throw, you turn into a Goat (see appendix B); on a 10, See Invisibility.";
     }
     else if (roll <= 64) {
         effect = "For the next minute, any flammable, nonmagical object you touch that isn't being worn or carried by another creature bursts into flame.";
@@ -121,7 +121,7 @@ function getWildMagicEffect() {
         effect = "You and all creatures within 30 feet have Vulnerability to Piercing damage for the next minute.";
     }
     else {
-        effect = "Roll 1d6 for the additional effect.";
+        effect = "Roll 1d6: On a 1, you regain 2d10 Hit Points; on a 2, one ally of your choice within 300 feet of you regains 2d10 Hit Points; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17–20 affect you simultaneously.";
     }
 
     return {
