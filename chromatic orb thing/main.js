@@ -45,14 +45,30 @@ addEnemyRow();
 addEnemyRow();
 function getWildMagicEffect() {
     const roll = rollDie(100);
-
     let effect = "";
 
     if (roll <= 4) {
         effect = "Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls.";
     }
     else if (roll <= 8) {
-        effect = "A creature that is Friendly toward you appears in a random unoccupied space within 60 feet of you. The creature is under the DM’s control and disappears 1 minute later. Roll 1d4 to determine the creature: on a 1, a Modron Duodrone appears; on a 2, a Flumph appears; on a 3, a Modron Monodrone appears; on a 4, a Unicorn appears. See the Monster Manual for the creature’s stat block.";
+        const creatureRoll = rollDie(4);
+
+        let creature = "";
+
+        if (creatureRoll === 1) {
+            creature = "Modron Duodrone";
+        }
+        else if (creatureRoll === 2) {
+            creature = "Flumph";
+        }
+        else if (creatureRoll === 3) {
+            creature = "Modron Monodrone";
+        }
+        else {
+            creature = "Unicorn";
+        }
+
+        effect = `A creature that is Friendly toward you appears in a random unoccupied space within 60 feet of you. The creature is under the DM’s control and disappears 1 minute later. Roll 1d4 to determine the creature: on a 1, a Modron Duodrone appears; on a 2, a Flumph appears; on a 3, a Modron Monodrone appears; on a 4, a Unicorn appears. See the Monster Manual for the creature’s stat block." Roll 1d4: ${creatureRoll} — ${creature}.`;
     }
     else if (roll <= 12) {
         effect = "For the next minute, you regain 5 Hit Points at the start of each of your turns.";
@@ -61,7 +77,36 @@ function getWildMagicEffect() {
         effect = "Creatures have Disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw.";
     }
     else if (roll <= 20) {
-        effect = "You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll 1d8 to determine the effect: on a 1, you’re surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you Advantage on Wisdom (Perception) checks; on an 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a Remove Curse spell.";
+        const effectRoll = rollDie(8);
+
+        let effectResult = "";
+
+        if (effectRoll === 1) {
+            effectResult = "You are surrounded by faint, ethereal music.";
+        }
+        else if (effectRoll === 2) {
+            effectResult = "Your size increases by one size category.";
+        }
+        else if (effectRoll === 3) {
+            effectResult = "You grow a long beard made of feathers.";
+        }
+        else if (effectRoll === 4) {
+            effectResult = "You must shout when you speak.";
+        }
+        else if (effectRoll === 5) {
+            effectResult = "Illusory butterflies flutter around you.";
+        }
+        else if (effectRoll === 6) {
+            effectResult = "An eye appears on your forehead, granting Advantage on Wisdom (Perception) checks.";
+        }
+        else if (effectRoll === 7) {
+            effectResult = "Pink bubbles float out of your mouth whenever you speak.";
+        }
+        else {
+            effectResult = "Your skin turns a vibrant shade of blue.";
+        }
+
+        effect = `You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll 1d8 to determine the effect: on a 1, you’re surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you Advantage on Wisdom (Perception) checks; on an 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a Remove Curse spell." Roll 1d8: ${effectRoll} — ${effectResult}`;
     }
     else if (roll <= 24) {
         effect = "For the next minute, all your spells with a casting time of an action have a casting time of a Bonus Action.";
@@ -91,8 +136,43 @@ function getWildMagicEffect() {
         effect = "You can take one extra action on this turn.";
     }
     else if (roll <= 60) {
-        effect = "You cast a random spell. If the spell normally requires Concentration, it doesn’t require Concentration in this case; the spell lasts for its full duration. Roll 1d10 to determine the spell: on a 1, Confusion; on a 2, Fireball; on a 3, Fog Cloud; on a 4, Fly (cast on a random creature within 60 feet of you), on a 5, Grease; on a 6, Levitate (cast on yourself); on a 7, Magic Missile (cast as a level 5 spell); on an 8, Mirror Image; on a 9, Polymorph (cast on yourself), and if you fail the saving throw, you turn into a Goat (see appendix B); on a 10, See Invisibility.";
+    const spellRoll = rollDie(10);
+
+    let spell;
+
+    if (spellRoll === 1) {
+        spell = "Confusion";
     }
+    else if (spellRoll === 2) {
+        spell = "Fireball";
+    }
+    else if (spellRoll === 3) {
+        spell = "Fog Cloud";
+    }
+    else if (spellRoll === 4) {
+        spell = "Fly (cast on a random creature within 60 feet of you)";
+    }
+    else if (spellRoll === 5) {
+        spell = "Grease";
+    }
+    else if (spellRoll === 6) {
+        spell = "Levitate (cast on yourself)";
+    }
+    else if (spellRoll === 7) {
+        spell = "Magic Missile (cast as a level 5 spell)";
+    }
+    else if (spellRoll === 8) {
+        spell = "Mirror Image";
+    }
+    else if (spellRoll === 9) {
+        spell = "Polymorph (cast on yourself)";
+    }
+    else if (spellRoll === 10) {
+        spell = "See Invisibility";
+    }
+
+    effect = `You cast a random spell. If the spell normally requires Concentration, it doesn’t require Concentration in this case; the spell lasts for its full duration. Roll 1d10 to determine the spell. You rolled ${spellRoll}: ${spell}.`;
+}
     else if (roll <= 64) {
         effect = "For the next minute, any flammable, nonmagical object you touch that isn't being worn or carried by another creature bursts into flame.";
     }
@@ -106,22 +186,37 @@ function getWildMagicEffect() {
         effect = "You teleport up to 60 feet to an unoccupied space you can see.";
     }
     else if (roll <= 80) {
-        effect = "A random creature within 60 feet of you has the Poisoned condition for 1d4 hours.";
+        const durationRoll = rollDie(4);
+
+        effect = `A random creature within 60 feet of you has the Poisoned condition for 1d4 hours. Roll: ${durationRoll} hours.`;
     }
     else if (roll <= 84) {
         effect = "You radiate Bright Light in a 30-foot radius for the next minute.";
     }
     else if (roll <= 88) {
-        effect = "Up to three creatures you can see within 30 feet take 1d10 Necrotic damage. You regain Hit Points equal to the damage dealt.";
+        const damageRoll = rollDie(10);
+
+        effect = `Up to three creatures you can see within 30 feet take 1d10 Necrotic damage. You regain Hit Points equal to the damage dealt. Roll: ${damageRoll} damage.`;
     }
     else if (roll <= 92) {
-        effect = "Up to three creatures you can see within 30 feet take 4d10 Lightning damage.";
+        const damageRolls = [];
+        let totalDamage = 0;
+
+        for (let i = 0; i < 4; i++) {
+            const dieRoll = rollDie(10);
+            damageRolls.push(dieRoll);
+            totalDamage += dieRoll;
+        }
+
+        effect = `Up to three creatures you can see within 30 feet take 4d10 Lightning damage. Rolls: ${damageRolls.join(" + ")} = ${totalDamage} Lightning damage.`;
     }
     else if (roll <= 96) {
         effect = "You and all creatures within 30 feet have Vulnerability to Piercing damage for the next minute.";
     }
     else {
-        effect = "Roll 1d6: On a 1, you regain 2d10 Hit Points; on a 2, one ally of your choice within 300 feet of you regains 2d10 Hit Points; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17–20 affect you simultaneously.";
+        const additionalRoll = rollDie(6);
+
+        effect = `oll 1d6: On a 1, you regain 2d10 Hit Points; on a 2, one ally of your choice within 300 feet of you regains 2d10 Hit Points; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17–20 affect you simultaneously." Roll: ${additionalRoll}.`;
     }
 
     return {
